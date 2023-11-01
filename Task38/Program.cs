@@ -45,7 +45,7 @@ void PrintArrayDouble (double[] paarray)                 // Метод выво�
 
 double FindMax(double[] maxarray)
 {
-    double maxelement = 0;
+    double maxelement = maxarray[0];
     for (int i = 0; i < maxarray.Length; i++)
     {
         if (maxarray[i] > maxelement)
@@ -56,9 +56,9 @@ double FindMax(double[] maxarray)
     return maxelement;
 }
 
-double FindMin(double[] minarray, double maximum)
+double FindMin(double[] minarray)
 {
-    double minelement = maximum;
+    double minelement = minarray[0];
     for (int i = 0; i < minarray.Length; i++)
     {
         if (minarray[i] < minelement)
@@ -69,9 +69,9 @@ double FindMin(double[] minarray, double maximum)
     return minelement;
 }
 
-double CalcDifferenceBetweenMaxMin(double[] difarray, double max1)
+double CalcDifferenceBetweenMaxMin(double[] difarray)
 {
-    return (FindMax(difarray) - FindMin(difarray, max1));
+    return (FindMax(difarray) - FindMin(difarray));
 }
 
 double[] array = new double[GetNumber("Введите колическво элементов массива: ")];
@@ -79,6 +79,6 @@ double maxrange = GetNumberDouble("Введите максимальное зн�
 array = FillArray(array, maxrange);
 PrintArrayDouble(array);
 Console.WriteLine($"Max = {FindMax(array)}");
-Console.WriteLine($"Min = {FindMin(array, maxrange)}");
-Console.WriteLine($"Разница между max и min = {CalcDifferenceBetweenMaxMin(array, maxrange)}");
+Console.WriteLine($"Min = {FindMin(array)}");
+Console.WriteLine($"Разница между max и min = {CalcDifferenceBetweenMaxMin(array)}");
 
